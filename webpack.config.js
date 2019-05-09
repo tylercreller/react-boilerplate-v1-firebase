@@ -5,7 +5,10 @@ const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = env => {
 	const isProduction = env === 'production';
 	const MiniCssExtract = new MiniCssExtractPlugin({ filename: 'styles.css' });
-	const TextCompression = new CompressionPlugin({ test: /\.js$/, deleteOriginalAssets: true });
+	const TextCompression = new CompressionPlugin({
+		test: /\.js$/,
+		deleteOriginalAssets: false // Firebase deploys our bundle.js
+	});
 	const plugins = [MiniCssExtract];
 	if (isProduction) {
 		plugins.push(TextCompression);
@@ -46,7 +49,7 @@ module.exports = env => {
 							}
 						}
 					]
-				},
+				}
 			]
 		},
 		mode: isProduction ? 'production' : 'development',
