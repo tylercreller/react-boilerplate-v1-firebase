@@ -1,4 +1,14 @@
 {
-	"presets": ["@babel/preset-env", "@babel/preset-react"],
-	"plugins": ["@babel/plugin-proposal-class-properties"]
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic" // Automatic JSX transform (no need to import React anymore in components)
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties" // Allows usage of variable declarations in React Components
+  ]
 }

@@ -7,7 +7,7 @@
 Install Dependencies
 
 ```
-yarn install
+yarn
 ```
 
 #### Developing locally

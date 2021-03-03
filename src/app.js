@@ -1,6 +1,7 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-ReactDOM.render(<p>Boilerplate - Firebase</p>, document.getElementById('app'));
+import Hello from './components/Hello';
+
+ReactDOM.render(<Hello />, document.getElementById('app'));
