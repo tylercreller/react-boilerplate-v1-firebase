@@ -1,17 +1,17 @@
 html {
-	font-size: 62.5%;
+  font-size: 62.5%; // Change REM font size to base 10, Ex. 1.8rem = 18px
 }
 
 body {
-	background-color: #ffffff;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: $m-size;
+  background-color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $m-size;
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 button:disabled {
-	cursor: default;
+  cursor: default;
 }
