@@ -3,13 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = (env) => {
-  const isProduction = env === 'production';
+  const isProduction = env.production === true;
   const MiniCssExtract = new MiniCssExtractPlugin({ filename: 'styles.css' });
   const TextCompression = new CompressionPlugin({
     test: /\.js$/,
     deleteOriginalAssets: false // Firebase deploys our bundle.js
   });
   const plugins = [MiniCssExtract];
+
   if (isProduction) {
     plugins.push(TextCompression);
   }
@@ -18,7 +19,8 @@ module.exports = (env) => {
     entry: './src/app.js',
     output: {
       path: path.join(__dirname, 'public', 'dist'),
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      clean: true
     },
     module: {
       rules: [
@@ -52,7 +54,7 @@ module.exports = (env) => {
     },
     mode: isProduction ? 'production' : 'development',
     plugins,
-    devtool: isProduction ? false : 'inline-source-map',
+    devtool: isProduction ? false : 'source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true,
